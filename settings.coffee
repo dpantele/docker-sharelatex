@@ -3,9 +3,9 @@ Path = require('path')
 # These credentials are used for authenticating api requests
 # between services that may need to go over public channels
 httpAuthUser = "sharelatex"
-httpAuthPass = "CRYPTO_RANDOM" # Randomly generated for you
-httpAuthUsers = {}
-httpAuthUsers[httpAuthUser] = httpAuthPass
+# need to send this in .override httpAuthPass = "CRYPTO_RANDOM" # Randomly generated for you
+#httpAuthUsers = {}
+#httpAuthUsers[httpAuthUser] = httpAuthPass
 
 DATA_DIR = '/var/lib/sharelatex/data'
 TMP_DIR = '/var/lib/sharelatex/tmp'
@@ -103,12 +103,12 @@ module.exports =
 	
 	# If provided, a sessionSecret is used to sign cookies so that they cannot be
 	# spoofed. This is recommended.
-	security:
-		sessionSecret: "CRYPTO_RANDOM" # This was randomly generated for you
+	#security:
+	#	sessionSecret: "CRYPTO_RANDOM" # This was randomly generated for you
 
 	# These credentials are used for authenticating api requests
 	# between services that may need to go over public channels
-	httpAuthUsers: httpAuthUsers
+	# httpAuthUsers: httpAuthUsers
 	
 	# Should javascript assets be served minified or not. Note that you will
 	# need to run `grunt compile:minify` within the web-sharelatex directory
@@ -208,7 +208,7 @@ module.exports =
 		web:
 			url: "http://web:#{webPort}"
 			user: httpAuthUser
-			pass: httpAuthPass
+			#pass: httpAuthPass
 		documentupdater:
 			url : "http://documentupdater:#{docUpdaterPort}"
 		clsi:
@@ -225,6 +225,7 @@ module.exports =
 			url: "http://spelling:#{spellingPort}"
 		chat:
 			url: "http://chat:#{chatPort}"
+			internal_url: "http://chat:#{chatPort}"
 		realTime:
 			url: "http://realtime:#{realTimePort}"
 	
