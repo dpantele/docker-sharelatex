@@ -50,6 +50,7 @@ RUN tlmgr install \
   bbm \
   bbm-macros \
   bbold \
+  cancel \
   doublestroke \
   enumitem \
   ifplatform \
