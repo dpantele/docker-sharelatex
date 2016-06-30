@@ -63,6 +63,7 @@ RUN tlmgr install \
   showlabels \
   srcltx \
   standalone \
+  titlesec \
   tocbibind \
   todonotes \
   yfonts \
