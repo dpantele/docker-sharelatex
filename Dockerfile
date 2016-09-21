@@ -64,6 +64,7 @@ RUN tlmgr install \
   srcltx \
   standalone \
   titlesec \
+  textpos \
   tocbibind \
   todonotes \
   yfonts \
