@@ -55,6 +55,7 @@ RUN tlmgr install \
   enumitem \
   ifplatform \
   mathabx \
+  makecell \
   minted \
   mnsymbol \
   latexmk \
@@ -63,6 +64,7 @@ RUN tlmgr install \
   showlabels \
   srcltx \
   standalone \
+  subfiles \
   titlesec \
   textpos \
   tocbibind \
