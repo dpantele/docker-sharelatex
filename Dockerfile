@@ -8,11 +8,14 @@ RUN adduser --system --group --home /var/lib/sharelatex --no-create-home sharela
 	chown sharelatex:sharelatex /var/log/sharelatex;
 
 WORKDIR /tmp
-COPY texlive.profile /tmp/install-tl-unx/
+
+RUN mkdir /tmp/install-tl-unx
 
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
-    && tar -xf install-tl-unx.tar.gz -C ./install-tl-unx --strip-components=1 \
-    && ./install-tl-unx/install-tl -profile ./install-tl-unx/texlive.profile \
+    && tar -xf install-tl-unx.tar.gz -C ./install-tl-unx --strip-components=1 
+
+COPY texlive.profile /tmp/install-tl-unx/
+RUN ./install-tl-unx/install-tl -profile ./install-tl-unx/texlive.profile \
     && rm -r ./install-tl-unx \
     && rm ./install-tl-unx.tar.gz
 
@@ -42,7 +45,7 @@ RUN npm install -g grunt-cli \
 WORKDIR /var/www/sharelatex/web
 RUN grunt compile:minify 
 
-ENV PATH $PATH:/usr/local/texlive/2015/bin/x86_64-linux/
+ENV PATH $PATH:/usr/local/texlive/2017/bin/x86_64-linux/
 RUN tlmgr install \
   algorithm2e \
   algorithmicx \
